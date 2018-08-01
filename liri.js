@@ -101,19 +101,20 @@ function displaySpotify(arg)
 {
     if(arg == undefined)
     {
-       arg = "The Sign";
+       arg = "Tiny Dancer";
     }
-    console.log(arg);
+    // console.log(arg);
 
     spotify.search({ type: 'track', query: arg, limit: 1}, function(err, data) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
        
-      console.log(data.tracks.items);
-    //   console.log(data.tracks.items);
-    //   console.log(data.tracks.items);
-    //   console.log(data.tracks.items); 
+    console.log("The artist is: " + data.tracks.items[0].album.artists[0].name);
+    console.log("The song name is: "+data.tracks.items[0].name);
+    console.log("The preview URL (if available): " + data.tracks.items[0].preview_url);
+    console.log("The album name is: "+ data.tracks.items[0].album.name);
+
     });
 }
 function displayMovie(arg)
